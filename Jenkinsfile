@@ -11,7 +11,8 @@ pipeline {
    agent  any
     stages {
         stage('checkout'){
-            steps{                                  
+            steps{          
+                            sh "mkdir terraform/"
                             git "https://github.com/yeshwanthlm/Terraform-Jenkins.git"
                        }
                                                                         
@@ -20,7 +21,6 @@ pipeline {
 
         stage('Plan') {
             steps {
-                sh "mkdir terraform/" 
                 sh 'pwd;cd terraform/ ; terraform init'
                 sh "pwd;cd terraform/ ; terraform plan -out tfplan"
                 sh 'pwd;cd terraform/ ; terraform show -no-color tfplan > tfplan.txt'
