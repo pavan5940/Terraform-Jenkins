@@ -13,7 +13,7 @@ pipeline {
         stage('checkout'){
             steps{          
                             sh "mkdir terraform/"
-                            git "https://github.com/yeshwanthlm/Terraform-Jenkins.git"
+                            sh "git clone https://github.com/yeshwanthlm/Terraform-Jenkins.git"
                        }
                                                                         
             }
